@@ -116,6 +116,7 @@ async function findById(scheme_id) { // EXERCISE B
         }
       })
 
+
       return result
 
 }
