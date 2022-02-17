@@ -59,10 +59,11 @@ const validateScheme = (req, res, next) => {
     "message": "invalid step"
   }
 */
-const validateStep =  (req, res, next) => {
+const validateStep =  async (req, res, next) => {
 
-  const { instructions, step_number } =  req.body
+  const { instructions, step_number } =  await req.body
 
+  try {
   if (
       !instructions || 
       instructions === '' || 
@@ -77,6 +78,10 @@ const validateStep =  (req, res, next) => {
   } else {
     next()
   } 
+  }
+  catch (err) {
+    next(err)
+  }
 
 }
 
